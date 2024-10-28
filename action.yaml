@@ -1,0 +1,31 @@
+name: 'bts-update-env-var'
+description: 'Updated environment variable value'
+author: BTSavvy
+branding:
+  icon: box
+  color: orange
+inputs:
+  owner:
+    description: 'The account owner of the repository. The name is not case sensitive.'
+    required: true
+  repo_name:
+    description: 'The name of the repository without the .git extension. The name is not case sensitive.'
+    required: true
+  environment_name:
+    description: 'Comma list The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with %2F'
+    required: true
+  var_name:
+    description: 'The name of the variable.'
+    required: true
+  var_value:
+    description: 'The value of the variable.'
+    required: true
+  token:
+    description: 'The oauth token'
+    required: true
+outputs:
+  data:
+    description: 'The placeholder for any output data'
+runs:
+  using: 'docker'
+  image: 'docker://btsavvy/action-update-env-var:latest'
